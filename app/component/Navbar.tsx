@@ -4,7 +4,7 @@ import { NAVBAR_ITEMS } from "../helper/data";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[80px] !bg-primary-color  rounded-2xl flex items-center justify-between px-10">
+    <div className="w-full h-[80px]  bg-linear-to-r from-white via-white to-primary-color  rounded-2xl flex items-center justify-between px-10">
       <div className="flex items-center">
         <Link href="/">
           <Image
