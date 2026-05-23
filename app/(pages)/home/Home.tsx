@@ -2,10 +2,11 @@ import { IMAGE_HELPER } from "@/app/helper/imageHelper";
 import Hero from "./Hero";
 import { Meteors } from "@/components/ui/meteors";
 import LensImagesDisplay from "@/app/component/LensImagesDisplay";
-import { BigHeading } from "@/app/component/Typography";
 import { PrimaryButton, SecondaryButton } from "@/app/component/Buttons";
 import { TextAnimate } from "@/components/ui/text-animate";
 import ContactForm from "@/app/component/ContactForm";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { CoolMode } from "@/components/ui/cool-mode";
 
 const SERVICES = [
   {
@@ -81,82 +82,142 @@ const FAQ_ITEMS = [
   },
 ];
 
+const CONSTRUCTION_PHASES = [
+  {
+    phase: "Site & Soil Readiness",
+    detail: "Survey and soil verification before any structural commitment.",
+    completion: "98%",
+  },
+  {
+    phase: "Structure & Frame Build",
+    detail:
+      "Controlled sequencing of footing, columns, slab work, and curing windows.",
+    completion: "92%",
+  },
+  {
+    phase: "MEP & Civil Coordination",
+    detail:
+      "Electrical, plumbing, and service lines aligned early to avoid rework.",
+    completion: "89%",
+  },
+  {
+    phase: "Finishing & Handover Checks",
+    detail:
+      "Quality checklist, snag closure, and final readiness sign-off before handover.",
+    completion: "96%",
+  },
+];
+
+const DIFFERENTIATORS = [
+  "Complete workflow from planning to handover",
+  "No skipped engineering stages",
+  "Checklist-based execution at every stage",
+  "Early coordination of architectural, structural, and service design",
+  "Cost-overrun control through proper planning",
+  "Practical local-market pricing",
+  "Structured responsibility and warranty support",
+];
+
 const Home = () => {
   return (
     <div className="w-full h-full flex flex-col gap-4 py-4">
+      <ScrollProgress className="h-1 bg-linear-to-r from-secondary-color via-primary-color to-[#f4efe9]" />
       <Hero />
       <div className="w-full relative overflow-hidden h-[30vh] bg-primary-color flex flex-col items-center justify-center">
-        <h1 className="text-2xl text-white font-normal text-center leading-loose">
-          Every project follows essential engineering <br /> stages without
-          skipping critical process.
-        </h1>
+        <TextAnimate
+          as="h1"
+          by="line"
+          animation="blurInUp"
+          className="text-4xl text-white font-normal text-center leading-loose px-4"
+          once
+        >
+          {
+            "Every project follows essential engineering\nstages without skipping critical process."
+          }
+        </TextAnimate>
+
         <Meteors number={10} />
       </div>
-      <section className="w-full min-h-[100vh] rounded-2xl flex gap-4">
-        <div className="w-[70vw] flex flex-col gap-4 top-0 sticky">
-          <div className="h-[40vh] w-full bg-secondary-color rounded-2xl flex items-left justify-center flex-col px-10">
-            <BigHeading
-              heading={
-                <h1 className="leading-loose uppercase text-primary-color">
-                  Our Philosophy
-                </h1>
-              }
-            />
-            <p className="leading-loose">
-              Wano Projects believes that a building should be planned properly
-              before it is built. Good construction is not only about
-              appearance. It is about safety, usability, long-term performance,
-              and disciplined execution.
-              <br />
-              We follow an engineering-first approach where design, structure,
-              services, and execution are coordinated from the beginning. This
-              helps reduce confusion, avoids unnecessary changes later, and
-              creates better project control.
-              <br />
-              Our goal is simple: build in a way that is practical, technically
-              sound, and responsible.
-            </p>
+      <section className="w-full rounded-2xl bg-gradient-to-br from-secondary-color via-[#f4efe9] to-secondary-color p-4 md:p-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <div className="lg:col-span-8 flex flex-col gap-4">
+            <article className="relative overflow-hidden rounded-2xl border border-primary-color/15 bg-white p-6 md:p-8 shadow-sm">
+              <div className="absolute top-0 left-0 h-1.5 w-40 bg-primary-color" />
+              <TextAnimate
+                as="h2"
+                by="word"
+                animation="blurInUp"
+                className="text-3xl md:text-4xl font-bold uppercase text-primary-color leading-tight"
+                once
+              >
+                Our Philosophy
+              </TextAnimate>
+              <p className="leading-loose text-primary-color/90 pt-4">
+                Wano Projects believes that a building should be planned
+                properly before it is built. Good construction is not only about
+                appearance. It is about safety, usability, long-term
+                performance, and disciplined execution.
+              </p>
+              <p className="leading-loose text-primary-color/90 pt-3">
+                We follow an engineering-first approach where design, structure,
+                services, and execution are coordinated from the beginning. This
+                helps reduce confusion, avoids unnecessary changes later, and
+                creates better project control.
+              </p>
+              <p className="leading-loose text-primary-color/90 pt-3">
+                Our goal is simple: build in a way that is practical,
+                technically sound, and responsible.
+              </p>
+            </article>
+
+            <article className="relative overflow-hidden rounded-2xl border border-primary-color/15 bg-primary-color p-6 md:p-8 text-white shadow-sm">
+              <div className="absolute top-4 right-4 text-[10px] uppercase tracking-[0.22em] text-secondary-color/80">
+                Engineering-first
+              </div>
+              <TextAnimate
+                as="h2"
+                by="word"
+                animation="slideUp"
+                className="text-3xl md:text-4xl font-bold uppercase leading-tight"
+                once
+              >
+                What Makes Wano Projects Different
+              </TextAnimate>
+              <p className="pt-3 text-white/85 leading-loose">
+                Our key strengths are:
+              </p>
+              <ul className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
+                {DIFFERENTIATORS.map((point, index) => (
+                  <li
+                    key={point}
+                    className="group rounded-xl border border-white/20 bg-white/10 px-4 py-3 transition-all duration-300 hover:bg-white/15 hover:border-secondary-color"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary-color text-primary-color text-sm font-semibold">
+                        {index + 1}
+                      </span>
+                      <span className="leading-relaxed">{point}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <p className="leading-loose pt-4 text-white/90">
+                Many projects become costly because important steps are skipped
+                in the beginning. We reduce that risk by planning carefully
+                before execution starts.
+              </p>
+            </article>
           </div>
-          <div className="h-[60vh] w-full bg-secondary-color rounded-2xl flex items-left justify-center flex-col px-10">
-            <BigHeading
-              heading={
-                <h1 className="leading-loose uppercase text-primary-color">
-                  What Makes Wano Projects Different
-                </h1>
-              }
-            />
-            <BigHeading
-              heading={
-                <h1 className="leading-loose text-2xl text-primary-color">
-                  Our key strengths are:
-                </h1>
-              }
-            />
-            <ul className="leading-loose list-disc pl-4">
-              <li>Complete workflow from planning to handover</li>
-              <li>No skipped engineering stages</li>
-              <li>Checklist-based execution at every stage</li>
-              <li>
-                Early coordination of architectural, structural, and service
-                design
-              </li>
-              <li>Cost-overrun control through proper planning</li>
-              <li>Practical local-market pricing</li>
-              <li>Structured responsibility and warranty support </li>
-            </ul>
-            <p className="leading-loose pt-2">
-              Many projects become costly because important steps are skipped in
-              the beginning. We reduce that risk by planning carefully before
-              execution starts.
-            </p>
-          </div>
-        </div>
-        <div className="w-[30vw] flex flex-col gap-4">
-          <div className="h-[102vh] w-full rounded-2xl">
-            <LensImagesDisplay
-              img={IMAGE_HELPER.HOME_HERO_LEFT_IMAGE}
-              height="102vh"
-            />
+
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-6 h-full overflow-hidden rounded-2xl border border-primary-color/20 bg-white p-2 shadow-sm">
+              <div className="relative h-full rounded-xl overflow-hidden">
+                <LensImagesDisplay
+                  img={IMAGE_HELPER.HOME_HERO_LEFT_IMAGE}
+                  height="100%"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -179,13 +240,23 @@ const Home = () => {
             {SERVICES.map((service, index) => (
               <div
                 key={service.title}
-                className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm px-6 py-5"
+                className="group rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:border-secondary-color/60 hover:bg-white/15"
               >
-                <p className="text-sm text-white/70">Service {index + 1}</p>
+                <p className="text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300">
+                  Service {index + 1}
+                </p>
                 <h3 className="text-xl font-semibold pt-1">{service.title}</h3>
-                <p className="leading-loose text-white/85 pt-2">
+                <p className="leading-loose text-white/85 pt-2 group-hover:text-white">
                   {service.content}
                 </p>
+                <div className="pt-4">
+                  <div className="h-1.5 w-full rounded-full bg-white/20 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-secondary-color transition-all duration-700 group-hover:w-full"
+                      style={{ width: `${Math.min(100, 58 + index * 8)}%` }}
+                    />
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -245,16 +316,31 @@ const Home = () => {
         <p className="leading-loose text-white">
           Every Wano Projects building follows a clear sequence:
         </p>
-        <ol className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <ol className="relative flex flex-col gap-3 pl-2 md:pl-4">
           {WORKFLOW_STEPS.map((step, index) => (
             <li
               key={step}
-              className="flex items-center gap-3 rounded-xl border border-white/20 !bg-primary-color px-4 py-3"
+              className={`group relative rounded-xl border border-white/20 bg-white/5 px-4 py-3 transition-all duration-300 hover:border-secondary-color hover:bg-white/10 ${
+                index % 2 === 0 ? "md:ml-0" : "md:ml-12"
+              }`}
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full !bg-primary-color text-secondary-color font-semibold">
-                {index + 1}
-              </span>
-              <span className="text-white font-medium">{step}</span>
+              <div className="flex items-center gap-4">
+                {index !== WORKFLOW_STEPS.length - 1 && (
+                  <span className="absolute left-5 top-[52px] h-[calc(100%-20px)] w-px bg-gradient-to-b from-secondary-color/90 to-white/10" />
+                )}
+                <span className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary-color text-primary-color font-semibold shadow-[0_0_0_4px_rgba(244,239,233,0.15)] group-hover:scale-110 transition-transform duration-300">
+                  {index + 1}
+                </span>
+                <span className="h-px w-6 bg-secondary-color/80" />
+                <div className="flex flex-col">
+                  <span className="text-[11px] uppercase tracking-[0.18em] text-secondary-color/85">
+                    Stage {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-white font-medium tracking-wide">
+                    {step}
+                  </span>
+                </div>
+              </div>
             </li>
           ))}
         </ol>
@@ -263,6 +349,47 @@ const Home = () => {
           coordination between design and execution.
         </p>
         <Meteors number={12} />
+      </section>
+      <section className="w-full rounded-2xl px-6 py-10 md:px-10 bg-secondary-color text-primary-color flex flex-col gap-6">
+        <TextAnimate
+          as="h2"
+          by="word"
+          animation="slideUp"
+          className="text-3xl md:text-4xl font-bold uppercase leading-tight"
+          once
+        >
+          Construction Progress Intelligence
+        </TextAnimate>
+        <p className="leading-loose max-w-4xl">
+          Every major project stage is reviewed like a live build board so teams
+          can spot delays early, protect budget, and keep execution disciplined.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {CONSTRUCTION_PHASES.map((stage) => (
+            <div
+              key={stage.phase}
+              className="group rounded-xl border border-primary-color/20 bg-white px-6 py-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <h3 className="text-xl font-semibold">{stage.phase}</h3>
+                <span className="text-sm font-semibold text-primary-color/75 group-hover:text-primary-color">
+                  {stage.completion}
+                </span>
+              </div>
+              <p className="leading-loose text-primary-color/80 pt-2">
+                {stage.detail}
+              </p>
+              <div className="pt-4">
+                <div className="h-2 w-full rounded-full bg-primary-color/10 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-primary-color transition-all duration-700"
+                    style={{ width: stage.completion }}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
       <section className="w-full rounded-2xl px-6 py-10 md:px-10 bg-gradient-to-br from-[#f4efe9] to-white flex flex-col gap-4">
         <h2 className="text-4xl font-bold uppercase text-primary-color">FAQ</h2>
@@ -307,8 +434,12 @@ const Home = () => {
             planning to completion.
           </p>
           <div className="flex items-center gap-4 flex-wrap pt-2">
-            <PrimaryButton text="Contact Wano Projects" />
-            <SecondaryButton text="Schedule a Consultation" />
+            <CoolMode options={{ particle: "🧱", size: 12, speedHorz: 6 }}>
+              <PrimaryButton text="Contact Wano Projects" />
+            </CoolMode>
+            <CoolMode options={{ particle: "🏗️", size: 12, speedUp: 18 }}>
+              <SecondaryButton text="Schedule a Consultation" />
+            </CoolMode>
           </div>
           <Meteors number={12} />
         </section>

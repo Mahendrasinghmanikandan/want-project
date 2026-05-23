@@ -17,14 +17,15 @@ const Hero = () => {
       <div className="w-1/2 h-full bg-secondary-color rounded-2xl flex items-left justify-center px-[5vw] flex-col gap-4">
         <BigHeading
           heading={
-            <h1 className="text-6xl font-extrabold">
-              Engineered Buildings <br /> Built the Right Way
+            <h1 className="text-6xl font-normal">
+              <span className="font-bold">Engineered Buildings </span>
+              <br /> Built the Right Way
             </h1>
           }
         />
         <p>
           Architecture, Structural Design, Soil Study, MEP Coordination, and
-          Construction — Delivered Through One Structured Workflow.
+          Construction <br /> Delivered Through One Structured Workflow.
         </p>
         <div className="flex items-center gap-4">
           <PrimaryButton text="Start Your Project" />

@@ -45,7 +45,7 @@ const Navbar = () => {
             alt="logo"
             width={100}
             height={80}
-            className="w-20 h-20"
+            className="w-20 h-20 !object-contain"
           />
         </Link>
       </div>
