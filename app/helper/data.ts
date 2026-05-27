@@ -8,9 +8,14 @@ export const NAVBAR_ITEMS = [
     href: "/about",
   },
   {
-    label: "Contact",
-    href: "/contact",
+    label: "Why Wano",
+    href: "/why-wano",
   },
+  {
+    label: "FAQ",
+    href: "/faq",
+  },
+
   {
     label: "Services",
     href: "/services",
@@ -18,5 +23,9 @@ export const NAVBAR_ITEMS = [
   {
     label: "Projects",
     href: "/projects",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];

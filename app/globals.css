@@ -147,4 +147,62 @@
 @theme {
   --color-primary-color: #212c00;
   --color-secondary-color: #ede9db;
+  --animate-home-splash-hammer: home-splash-hammer 0.9s ease-in-out infinite;
+  --animate-home-splash-brick: home-splash-brick-shine 2s ease-in-out infinite;
+  @keyframes home-splash-hammer {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(-22deg);
+    }
+    60% {
+      transform: rotate(8deg);
+    }
+  }
+  @keyframes home-splash-brick-shine {
+    0%,
+    100% {
+      opacity: 0.85;
+    }
+    50% {
+      opacity: 1;
+      box-shadow: inset 0 0 12px rgba(237, 233, 219, 0.15);
+    }
+  }
+}
+
+.home-splash-grid {
+  background-image:
+    linear-gradient(rgba(237, 233, 219, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 233, 219, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.home-splash-tape {
+  background: repeating-linear-gradient(
+    -45deg,
+    #f4d03f,
+    #f4d03f 12px,
+    #212c00 12px,
+    #212c00 24px
+  );
+}
+
+.home-splash-hammer {
+  animation: home-splash-hammer 0.9s ease-in-out infinite;
+  transform-origin: bottom right;
+}
+
+.home-splash-brick {
+  animation: home-splash-brick-shine 2s ease-in-out infinite;
+}
+
+.home-splash-crane {
+  transform-origin: 8px 64px;
+}
+
+.home-splash-progress {
+  transition: width 0.12s linear;
 }
